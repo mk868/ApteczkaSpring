@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\APTCuresController.cs" />
+    <Compile Include="DAL\APTLocationController.cs" />
+    <Compile Include="DAL\APTPharmacyController.cs" />
+    <Compile Include="DAL\APTPharmacyCuresController.cs" />
+    <Compile Include="DAL\APTUserController.cs" />
     <Compile Include="DTO\APTCures.cs">
       <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
     </Compile>
