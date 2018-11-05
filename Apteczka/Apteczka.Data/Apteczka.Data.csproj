@@ -49,17 +49,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\APTCures.cs">
+      <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ApteczkaDbDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApteczkaDbDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ApteczkaDbDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\ApteczkaDbDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApteczkaDbDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\APTLocation.cs">
+      <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\APTPharmacy.cs">
+      <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\APTPharmacyCures.cs">
+      <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\APTUsers.cs">
+      <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="DTO\ApteczkaDbDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ApteczkaDbDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DTO\ApteczkaDbDataModel.edmx.diagram">
+      <DependentUpon>ApteczkaDbDataModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DTO\" />
+    <Content Include="DTO\ApteczkaDbDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ApteczkaDbDataModel.edmx</DependentUpon>
+      <LastGenOutput>ApteczkaDbDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DTO\ApteczkaDbDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ApteczkaDbDataModel.edmx</DependentUpon>
+      <LastGenOutput>ApteczkaDbDataModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
