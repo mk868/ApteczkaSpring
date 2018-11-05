@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cbc09fdd84954a58bc33f533e7934525" Name="Diagram1">
+        <EntityTypeShape EntityType="ApteczkaDbModel.APTCures" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApteczkaDbModel.APTLocation" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApteczkaDbModel.APTPharmacy" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApteczkaDbModel.APTPharmacyCures" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApteczkaDbModel.APTUsers" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="ApteczkaDbModel.FK_APTPharmacyCures_APTCures" ManuallyRouted="false" />
+        <AssociationConnector Association="ApteczkaDbModel.FK_APTLocation_APTPharmacy" ManuallyRouted="false" />
+        <AssociationConnector Association="ApteczkaDbModel.FK_APTPharmacy_APTUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="ApteczkaDbModel.FK_APTPharmacyCures_APTPharmacy" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ApteczkaDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="APTCures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APTLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APTPharmacyId" Type="bigint" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Longitude" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="APTPharmacy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APTUserId" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APTPharmacyCures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APTPharmacyId" Type="bigint" Nullable="false" />
+          <Property Name="APTCuresId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APTUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_APTLocation_APTPharmacy">
+          <End Role="APTPharmacy" Type="Self.APTPharmacy" Multiplicity="1" />
+          <End Role="APTLocation" Type="Self.APTLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APTPharmacy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APTLocation">
+              <PropertyRef Name="APTPharmacyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APTPharmacy_APTUsers">
+          <End Role="APTUsers" Type="Self.APTUsers" Multiplicity="1" />
+          <End Role="APTPharmacy" Type="Self.APTPharmacy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APTUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APTPharmacy">
+              <PropertyRef Name="APTUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APTPharmacyCures_APTCures">
+          <End Role="APTCures" Type="Self.APTCures" Multiplicity="1" />
+          <End Role="APTPharmacyCures" Type="Self.APTPharmacyCures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APTCures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APTPharmacyCures">
+              <PropertyRef Name="APTCuresId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APTPharmacyCures_APTPharmacy">
+          <End Role="APTPharmacy" Type="Self.APTPharmacy" Multiplicity="1" />
+          <End Role="APTPharmacyCures" Type="Self.APTPharmacyCures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APTPharmacy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APTPharmacyCures">
+              <PropertyRef Name="APTPharmacyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ApteczkaDbModelStoreContainer">
+          <EntitySet Name="APTCures" EntityType="Self.APTCures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APTLocation" EntityType="Self.APTLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APTPharmacy" EntityType="Self.APTPharmacy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APTPharmacyCures" EntityType="Self.APTPharmacyCures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APTUsers" EntityType="Self.APTUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_APTLocation_APTPharmacy" Association="Self.FK_APTLocation_APTPharmacy">
+            <End Role="APTPharmacy" EntitySet="APTPharmacy" />
+            <End Role="APTLocation" EntitySet="APTLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APTPharmacy_APTUsers" Association="Self.FK_APTPharmacy_APTUsers">
+            <End Role="APTUsers" EntitySet="APTUsers" />
+            <End Role="APTPharmacy" EntitySet="APTPharmacy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APTPharmacyCures_APTCures" Association="Self.FK_APTPharmacyCures_APTCures">
+            <End Role="APTCures" EntitySet="APTCures" />
+            <End Role="APTPharmacyCures" EntitySet="APTPharmacyCures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APTPharmacyCures_APTPharmacy" Association="Self.FK_APTPharmacyCures_APTPharmacy">
+            <End Role="APTPharmacy" EntitySet="APTPharmacy" />
+            <End Role="APTPharmacyCures" EntitySet="APTPharmacyCures" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ApteczkaDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="APTCures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="APTPharmacyCures" Relationship="Self.FK_APTPharmacyCures_APTCures" FromRole="APTCures" ToRole="APTPharmacyCures" />
+        </EntityType>
+        <EntityType Name="APTLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APTPharmacyId" Type="Int64" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Longitude" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="APTPharmacy" Relationship="Self.FK_APTLocation_APTPharmacy" FromRole="APTLocation" ToRole="APTPharmacy" />
+        </EntityType>
+        <EntityType Name="APTPharmacy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APTUserId" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="APTLocation" Relationship="Self.FK_APTLocation_APTPharmacy" FromRole="APTPharmacy" ToRole="APTLocation" />
+          <NavigationProperty Name="APTUsers" Relationship="Self.FK_APTPharmacy_APTUsers" FromRole="APTPharmacy" ToRole="APTUsers" />
+          <NavigationProperty Name="APTPharmacyCures" Relationship="Self.FK_APTPharmacyCures_APTPharmacy" FromRole="APTPharmacy" ToRole="APTPharmacyCures" />
+        </EntityType>
+        <EntityType Name="APTPharmacyCures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APTPharmacyId" Type="Int64" Nullable="false" />
+          <Property Name="APTCuresId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="APTCures" Relationship="Self.FK_APTPharmacyCures_APTCures" FromRole="APTPharmacyCures" ToRole="APTCures" />
+          <NavigationProperty Name="APTPharmacy" Relationship="Self.FK_APTPharmacyCures_APTPharmacy" FromRole="APTPharmacyCures" ToRole="APTPharmacy" />
+        </EntityType>
+        <EntityType Name="APTUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="APTPharmacy" Relationship="Self.FK_APTPharmacy_APTUsers" FromRole="APTUsers" ToRole="APTPharmacy" />
+        </EntityType>
+        <Association Name="FK_APTPharmacyCures_APTCures">
+          <End Role="APTCures" Type="Self.APTCures" Multiplicity="1" />
+          <End Role="APTPharmacyCures" Type="Self.APTPharmacyCures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APTCures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APTPharmacyCures">
+              <PropertyRef Name="APTCuresId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APTLocation_APTPharmacy">
+          <End Role="APTPharmacy" Type="Self.APTPharmacy" Multiplicity="1" />
+          <End Role="APTLocation" Type="Self.APTLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APTPharmacy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APTLocation">
+              <PropertyRef Name="APTPharmacyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APTPharmacy_APTUsers">
+          <End Role="APTUsers" Type="Self.APTUsers" Multiplicity="1" />
+          <End Role="APTPharmacy" Type="Self.APTPharmacy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APTUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APTPharmacy">
+              <PropertyRef Name="APTUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APTPharmacyCures_APTPharmacy">
+          <End Role="APTPharmacy" Type="Self.APTPharmacy" Multiplicity="1" />
+          <End Role="APTPharmacyCures" Type="Self.APTPharmacyCures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APTPharmacy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APTPharmacyCures">
+              <PropertyRef Name="APTPharmacyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ApteczkaDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="APTCures" EntityType="Self.APTCures" />
+          <EntitySet Name="APTLocation" EntityType="Self.APTLocation" />
+          <EntitySet Name="APTPharmacy" EntityType="Self.APTPharmacy" />
+          <EntitySet Name="APTPharmacyCures" EntityType="Self.APTPharmacyCures" />
+          <EntitySet Name="APTUsers" EntityType="Self.APTUsers" />
+          <AssociationSet Name="FK_APTPharmacyCures_APTCures" Association="Self.FK_APTPharmacyCures_APTCures">
+            <End Role="APTCures" EntitySet="APTCures" />
+            <End Role="APTPharmacyCures" EntitySet="APTPharmacyCures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APTLocation_APTPharmacy" Association="Self.FK_APTLocation_APTPharmacy">
+            <End Role="APTPharmacy" EntitySet="APTPharmacy" />
+            <End Role="APTLocation" EntitySet="APTLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APTPharmacy_APTUsers" Association="Self.FK_APTPharmacy_APTUsers">
+            <End Role="APTUsers" EntitySet="APTUsers" />
+            <End Role="APTPharmacy" EntitySet="APTPharmacy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APTPharmacyCures_APTPharmacy" Association="Self.FK_APTPharmacyCures_APTPharmacy">
+            <End Role="APTPharmacy" EntitySet="APTPharmacy" />
+            <End Role="APTPharmacyCures" EntitySet="APTPharmacyCures" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApteczkaDbModelStoreContainer" CdmEntityContainer="ApteczkaDbEntities">
+          <EntitySetMapping Name="APTCures">
+            <EntityTypeMapping TypeName="ApteczkaDbModel.APTCures">
+              <MappingFragment StoreEntitySet="APTCures">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APTLocation">
+            <EntityTypeMapping TypeName="ApteczkaDbModel.APTLocation">
+              <MappingFragment StoreEntitySet="APTLocation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="APTPharmacyId" ColumnName="APTPharmacyId" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APTPharmacy">
+            <EntityTypeMapping TypeName="ApteczkaDbModel.APTPharmacy">
+              <MappingFragment StoreEntitySet="APTPharmacy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="APTUserId" ColumnName="APTUserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APTPharmacyCures">
+            <EntityTypeMapping TypeName="ApteczkaDbModel.APTPharmacyCures">
+              <MappingFragment StoreEntitySet="APTPharmacyCures">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="APTPharmacyId" ColumnName="APTPharmacyId" />
+                <ScalarProperty Name="APTCuresId" ColumnName="APTCuresId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APTUsers">
+            <EntityTypeMapping TypeName="ApteczkaDbModel.APTUsers">
+              <MappingFragment StoreEntitySet="APTUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
