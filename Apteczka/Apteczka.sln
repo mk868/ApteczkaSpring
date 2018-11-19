@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apteczka.API", "Apteczka.AP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apteczka.Tests", "Apteczka.Tests\Apteczka.Tests.csproj", "{6DED45CA-011F-4F71-B3C1-2E2D89A334AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apteczka.Data", "Apteczka.Data\Apteczka.Data.csproj", "{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6DED45CA-011F-4F71-B3C1-2E2D89A334AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DED45CA-011F-4F71-B3C1-2E2D89A334AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DED45CA-011F-4F71-B3C1-2E2D89A334AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
