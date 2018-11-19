@@ -1,0 +1,9 @@
+requirements:
+  node.js (8.x or 10.x)
+  npm
+  ng (npm install -g @angular/cli)
+	
+start command:
+  ng serve
+ or
+  ng serve --open
