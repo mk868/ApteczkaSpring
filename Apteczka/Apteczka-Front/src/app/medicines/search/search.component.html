@@ -2,105 +2,26 @@
    <h1>Medicine search</h1>
    <div class="col-md-8 col-md-offset-2">
    <div class="input-group">
-		<input type="text" class="form-control"  placeholder="Search" >
-        <button class="btn ">Search</button>
+		<input type="text" class="form-control"  placeholder="Search" [(ngModel)]="searchText" (keyup)="search()"/>
+        <button class="btn" (click)="search()">Search</button>
       </div>
       <div class="panel panel-default">
          <div class="panel-body">
             <div class="table-container">
                <table class="table table-filter">
                   <tbody>
-                     <tr>
+                     <tr *ngFor="let item of items">
                         <td>
-                           <a href="#" class="pull-left">
-                           <img src="/assets/medicine-128.png"/>
+                           <a [routerLink]="['/medicines/item/'+item.id]" class="pull-left">
+                           <img src="{{item.image}}"/>
                            </a>
                         </td>
                         <td>
                            <div class="media">
                               <div class="media-body">
-                                 <span class="media-meta pull-right">SuperLab xxx</span>
-                                 <h4 class="title">
-                                    Lorem Impsum
-                                    <span class="pull-right pagado">(Pagado)</span>
-                                 </h4>
-                                 <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                              </div>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <a href="#" class="pull-left">
-                           <img src="/assets/medicine-128.png"/>
-                           </a>
-                        </td>
-                        <td>
-                           <div class="media">
-                              <div class="media-body">
-                                 <span class="media-meta pull-right">SuperLab xxx</span>
-                                 <h4 class="title">
-                                    Lorem Impsum
-                                    <span class="pull-right pendiente">(Pendiente)</span>
-                                 </h4>
-                                 <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                              </div>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <a href="#" class="pull-left">
-                           <img src="/assets/medicine-128.png"/>
-                           </a>
-                        </td>
-                        <td>
-                           <div class="media">
-                              <div class="media-body">
-                                 <span class="media-meta pull-right">ChinaLab 123</span>
-                                 <h4 class="title">
-                                    Lorem Impsum
-                                    <span class="pull-right cancelado">(Cancelado)</span>
-                                 </h4>
-                                 <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                              </div>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <a href="#" class="pull-left">
-                           <img src="/assets/medicine-128.png"/>
-                           </a>
-                        </td>
-                        <td>
-                           <div class="media">
-                              <div class="media-body">
-                                 <span class="media-meta pull-right">ChinaLab 123</span>
-                                 <h4 class="title">
-                                    Lorem Impsum
-                                    <span class="pull-right pagado">(Pagado)</span>
-                                 </h4>
-                                 <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                              </div>
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <a href="#" class="pull-left">
-                           <img src="/assets/medicine-128.png"/>
-                           </a>
-                        </td>
-                        <td>
-                           <div class="media">
-                              <div class="media-body">
-                                 <span class="media-meta pull-right">Febrero 13, 2016</span>
-                                 <h4 class="title">
-                                    Lorem Impsum
-                                    <span class="pull-right pendiente">(Pendiente)</span>
-                                 </h4>
-                                 <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                 <span class="media-meta pull-right">{{item.company}}</span>
+                                 <a [routerLink]="['/medicines/item/'+item.id]"><h4 class="title">{{item.name}}</h4></a>
+                                 <p class="summary">{{item.shortDescription}}</p>
                               </div>
                            </div>
                         </td>
