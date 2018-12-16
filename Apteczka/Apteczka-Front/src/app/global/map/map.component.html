@@ -1,0 +1,6 @@
+<div id="map" class="map">
+</div>
+<div *ngIf="selectedObject != null">
+    Name: {{selectedObject.name}}<br/>
+    <a [routerLink]="['/pharmacy/' + selectedObject.id]">Go to pharmacy</a>
+</div>

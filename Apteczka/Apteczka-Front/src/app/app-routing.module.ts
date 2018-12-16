@@ -6,6 +6,7 @@ import { SearchComponent }      from './medicines/search/search.component';
 import { MainComponent }      from './global/main/main.component';
 import { AboutComponent }      from './global/about/about.component';
 import { ContactComponent }      from './global/contact/contact.component';
+import { MapComponent }      from './global/map/map.component';
 
 import { AppComponent }			from './app.component';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'map', component: MapComponent },
   {path: '**', redirectTo: ''}
 ];
 

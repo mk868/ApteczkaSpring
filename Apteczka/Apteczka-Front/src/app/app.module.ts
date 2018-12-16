@@ -11,6 +11,7 @@ import { ItemComponent }      	from './medicines/item/item.component';
 import { MainComponent }    from './global/main/main.component';
 import { AboutComponent }      from './global/about/about.component';
 import { ContactComponent }      from './global/contact/contact.component';
+import { MapComponent }      from './global/map/map.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ContactComponent }      from './global/contact/contact.component';
 	MainComponent,
 	AboutComponent,
   ContactComponent,
+  MapComponent,
   ItemComponent
   ],
   imports: [
