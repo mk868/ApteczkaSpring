@@ -12,13 +12,13 @@ namespace Apteczka.Data.DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class APTPharmacyCures
+    public partial class APTLocationCures
     {
         public long Id { get; set; }
-        public long APTPharmacyId { get; set; }
+        public long APTLocationId { get; set; }
         public long APTCuresId { get; set; }
     
         public virtual APTCures APTCures { get; set; }
-        public virtual APTPharmacy APTPharmacy { get; set; }
+        public virtual APTLocation APTLocation { get; set; }
     }
 }

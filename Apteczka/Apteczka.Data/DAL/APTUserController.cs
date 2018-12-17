@@ -1,7 +1,9 @@
-﻿using Apteczka.Data.DTO;
+﻿using Apteczka.Common;
+using Apteczka.Data.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -85,7 +87,32 @@ namespace Apteczka.Data.DAL
             {
                 throw ex;
             }
-        } 
+        }
         #endregion
+
+        public bool Login(APTUsers user)
+        {
+            using (MD5 md5Hash = MD5.Create())
+            {
+                string hash = Md5Helper.GetMd5Hash(md5Hash, source);
+            }
+            var dbUser = GetOneByLogin(user.Login);
+            if (dbUser != null && dbUser.Password == hash)
+                return true;
+
+            return false;
+        }
+
+        public APTUsers GetOneByLogin(string login)
+        {
+            try
+            {
+                return dbEntities.APTUsers.Where(x => x.Login == login).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

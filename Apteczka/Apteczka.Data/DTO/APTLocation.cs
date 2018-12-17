@@ -14,6 +14,12 @@ namespace Apteczka.Data.DTO
     
     public partial class APTLocation
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public APTLocation()
+        {
+            this.APTLocationCures = new HashSet<APTLocationCures>();
+        }
+    
         public long Id { get; set; }
         public long APTPharmacyId { get; set; }
         public string City { get; set; }
@@ -22,5 +28,7 @@ namespace Apteczka.Data.DTO
         public Nullable<decimal> Longitude { get; set; }
     
         public virtual APTPharmacy APTPharmacy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<APTLocationCures> APTLocationCures { get; set; }
     }
 }

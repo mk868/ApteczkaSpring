@@ -52,7 +52,7 @@
     <Compile Include="DAL\APTCuresController.cs" />
     <Compile Include="DAL\APTLocationController.cs" />
     <Compile Include="DAL\APTPharmacyController.cs" />
-    <Compile Include="DAL\APTPharmacyCuresController.cs" />
+    <Compile Include="DAL\APTLocationCuresController.cs" />
     <Compile Include="DAL\APTUserController.cs" />
     <Compile Include="DTO\APTCures.cs">
       <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
@@ -75,10 +75,10 @@
     <Compile Include="DTO\APTLocation.cs">
       <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\APTPharmacy.cs">
+    <Compile Include="DTO\APTLocationCures.cs">
       <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\APTPharmacyCures.cs">
+    <Compile Include="DTO\APTPharmacy.cs">
       <DependentUpon>ApteczkaDbDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\APTUsers.cs">
@@ -100,7 +100,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Apteczka.Common\Apteczka.Common.csproj">
+      <Project>{547EBB20-AD63-4837-9BB6-CD89E7571EE8}</Project>
+      <Name>Apteczka.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="DTO\ApteczkaDbDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -75,3 +75,20 @@ BEGIN
 END;
 --- koniec APTPharmacyCures
 
+IF DB_NAME()<>'master' AND
+   NOT EXISTS (	SELECT * FROM information_schema.tables
+		WHERE table_name='APTLocationCures' AND table_type='BASE TABLE')
+BEGIN
+	PRINT 'Tworze tabele APTLocationCures';
+	CREATE TABLE [dbo].[APTLocationCures](
+	[Id] [BIGINT] IDENTITY(1,10) NOT NULL,	-- primary key
+	[APTLocationId] [BIGINT] NOT NULL,	-- FK to table APTLocation references column Id
+	[APTCuresId] [BIGINT] NOT NULL,	-- FK to table APTLocation references column Id
+	CONSTRAINT [PK_APTLocationCures] PRIMARY KEY NONCLUSTERED ([Id]),
+	CONSTRAINT [FK_APTLocationCures_APTLocation] FOREIGN KEY([APTLocationId]) REFERENCES [dbo].[APTLocation] ([Id]),
+	CONSTRAINT [FK_APTLocationCures_APTCures] FOREIGN KEY([APTCuresId]) REFERENCES [dbo].[APTCures] ([Id])
+	);
+END;
+
+--- koniec APTLocationCures
+

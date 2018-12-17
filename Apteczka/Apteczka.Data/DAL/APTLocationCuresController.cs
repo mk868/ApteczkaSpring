@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Apteczka.Data.DAL
 {
-    public class APTPharmacyCuresController
+    public class APTLocationCuresController
     {
         private ApteczkaDbEntities dbEntities = new ApteczkaDbEntities();
 
         #region GenericController
-        public IList<APTPharmacyCures> GetAll()
+        public IList<APTLocationCures> GetAll()
         {
             try
             {
-                return dbEntities.APTPharmacyCures.ToList();
+                return dbEntities.APTLocationCures.ToList();
             }
             catch (Exception ex)
             {
@@ -24,11 +24,11 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public APTPharmacyCures GetOne(long id)
+        public APTLocationCures GetOne(long id)
         {
             try
             {
-                return dbEntities.APTPharmacyCures.Find(id);
+                return dbEntities.APTLocationCures.Find(id);
             }
             catch (Exception ex)
             {
@@ -36,11 +36,11 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public IList<APTPharmacyCures> GetOneByAPTPharmacyId(long id)
+        public IList<APTLocationCures> GetOneByAPTLocationId(long id)
         {
             try
             {
-                return dbEntities.APTPharmacyCures.Where(x => x.APTPharmacyId == id).ToList();
+                return dbEntities.APTLocationCures.Where(x => x.APTLocation.Id == id).ToList();
             }
             catch (Exception ex)
             {
@@ -48,11 +48,11 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public IList<APTPharmacyCures> GetOneByAPTCuresId(long id)
+        public IList<APTLocationCures> GetOneByAPTCuresId(long id)
         {
             try
             {
-                return dbEntities.APTPharmacyCures.Where(x => x.APTCuresId == id).ToList();
+                return dbEntities.APTLocationCures.Where(x => x.APTCuresId == id).ToList();
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public void Save(APTPharmacyCures item)
+        public void Save(APTLocationCures item)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace Apteczka.Data.DAL
                 }
                 else
                 {
-                    dbEntities.APTPharmacyCures.Add(item);
+                    dbEntities.APTLocationCures.Add(item);
                 }
                 dbEntities.SaveChanges();
             }
@@ -81,7 +81,7 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public void SaveAll(IList<APTPharmacyCures> items)
+        public void SaveAll(IList<APTLocationCures> items)
         {
             try
             {
@@ -96,11 +96,11 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public void Delete(APTPharmacyCures item)
+        public void Delete(APTLocationCures item)
         {
             try
             {
-                dbEntities.APTPharmacyCures.Remove(item);
+                dbEntities.APTLocationCures.Remove(item);
                 dbEntities.SaveChanges();
             }
             catch (Exception ex)

@@ -18,7 +18,6 @@ namespace Apteczka.Data.DTO
         public APTPharmacy()
         {
             this.APTLocation = new HashSet<APTLocation>();
-            this.APTPharmacyCures = new HashSet<APTPharmacyCures>();
         }
     
         public long Id { get; set; }
@@ -28,7 +27,5 @@ namespace Apteczka.Data.DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<APTLocation> APTLocation { get; set; }
         public virtual APTUsers APTUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<APTPharmacyCures> APTPharmacyCures { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace Apteczka.Data.DTO
         public virtual DbSet<APTCures> APTCures { get; set; }
         public virtual DbSet<APTLocation> APTLocation { get; set; }
         public virtual DbSet<APTPharmacy> APTPharmacy { get; set; }
-        public virtual DbSet<APTPharmacyCures> APTPharmacyCures { get; set; }
         public virtual DbSet<APTUsers> APTUsers { get; set; }
+        public virtual DbSet<APTLocationCures> APTLocationCures { get; set; }
     }
 }

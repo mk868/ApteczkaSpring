@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5f5f8f09eda644699ad26009f1f8594d" Name="Diagram1">
-        <EntityTypeShape EntityType="ApteczkaDbModel.APTCures" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApteczkaDbModel.APTCures" Width="1.5" PointX="4.5" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ApteczkaDbModel.APTLocation" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ApteczkaDbModel.APTPharmacy" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ApteczkaDbModel.APTPharmacyCures" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ApteczkaDbModel.APTUsers" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="ApteczkaDbModel.FK_APTPharmacyCures_APTCures" ManuallyRouted="false" />
         <AssociationConnector Association="ApteczkaDbModel.FK_APTLocation_APTPharmacy" ManuallyRouted="false" />
         <AssociationConnector Association="ApteczkaDbModel.FK_APTPharmacy_APTUsers" ManuallyRouted="false" />
-        <AssociationConnector Association="ApteczkaDbModel.FK_APTPharmacyCures_APTPharmacy" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ApteczkaDbModel.APTLocationCures" Width="1.5" PointX="7.5" PointY="4.875" />
+        <AssociationConnector Association="ApteczkaDbModel.FK_APTLocationCures_APTCures" />
+        <AssociationConnector Association="ApteczkaDbModel.FK_APTLocationCures_APTLocation" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

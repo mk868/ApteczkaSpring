@@ -17,7 +17,7 @@ namespace Apteczka.Data.DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public APTCures()
         {
-            this.APTPharmacyCures = new HashSet<APTPharmacyCures>();
+            this.APTLocationCures = new HashSet<APTLocationCures>();
         }
     
         public long Id { get; set; }
@@ -25,6 +25,6 @@ namespace Apteczka.Data.DTO
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<APTPharmacyCures> APTPharmacyCures { get; set; }
+        public virtual ICollection<APTLocationCures> APTLocationCures { get; set; }
     }
 }
