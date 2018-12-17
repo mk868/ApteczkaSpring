@@ -94,13 +94,14 @@ namespace Apteczka.Data.DAL
         {
             using (MD5 md5Hash = MD5.Create())
             {
-                string hash = Md5Helper.GetMd5Hash(md5Hash, source);
-            }
-            var dbUser = GetOneByLogin(user.Login);
-            if (dbUser != null && dbUser.Password == hash)
-                return true;
+                string hash = Md5Helper.GetMd5Hash(md5Hash, user.Password);
 
-            return false;
+                var dbUser = GetOneByLogin(user.Login);
+                if (dbUser != null && dbUser.Password == hash)
+                    return true;
+
+                return false;
+            }
         }
 
         public APTUsers GetOneByLogin(string login)

@@ -101,12 +101,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Apteczka.Common\Apteczka.Common.csproj">
-      <Project>{547EBB20-AD63-4837-9BB6-CD89E7571EE8}</Project>
-      <Name>Apteczka.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="DTO\ApteczkaDbDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ApteczkaDbDataModel.edmx</DependentUpon>
@@ -117,6 +111,12 @@
       <DependentUpon>ApteczkaDbDataModel.edmx</DependentUpon>
       <LastGenOutput>ApteczkaDbDataModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Apteczka.Common\Apteczka.Common.csproj">
+      <Project>{8963AB8E-A8A5-40B3-9AF0-DFAD28AA7BC9}</Project>
+      <Name>Apteczka.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

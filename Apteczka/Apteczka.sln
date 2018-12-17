@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apteczka.Tests", "Apteczka.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apteczka.Data", "Apteczka.Data\Apteczka.Data.csproj", "{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apteczka.Common", "Apteczka.Common\Apteczka.Common.csproj", "{547EBB20-AD63-4837-9BB6-CD89E7571EE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apteczka.Common", "Apteczka.Common\Apteczka.Common.csproj", "{8963AB8E-A8A5-40B3-9AF0-DFAD28AA7BC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{547EBB20-AD63-4837-9BB6-CD89E7571EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{547EBB20-AD63-4837-9BB6-CD89E7571EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{547EBB20-AD63-4837-9BB6-CD89E7571EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{547EBB20-AD63-4837-9BB6-CD89E7571EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8963AB8E-A8A5-40B3-9AF0-DFAD28AA7BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8963AB8E-A8A5-40B3-9AF0-DFAD28AA7BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8963AB8E-A8A5-40B3-9AF0-DFAD28AA7BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8963AB8E-A8A5-40B3-9AF0-DFAD28AA7BC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
