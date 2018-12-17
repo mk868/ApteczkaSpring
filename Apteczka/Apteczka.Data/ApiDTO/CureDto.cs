@@ -6,22 +6,17 @@ using System.Threading.Tasks;
 
 namespace Apteczka.Data.ApiDTO
 {
-    public class PharmacyDto
+    public class CureDto
     {
         public long Id { get; set; }
-        public long APTUserId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
 
-        public PharmacyDto(long id, long aptUserId, string name)
+        public CureDto(long id, string name, string description)
         {
             this.Id = id;
-            this.APTUserId = aptUserId;
             this.Name = name;
-        }
-
-        public PharmacyDto()
-        {
-
+            this.Description = description;
         }
     }
 }

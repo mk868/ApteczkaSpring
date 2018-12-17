@@ -183,6 +183,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\APTCure.cs" />
+    <Compile Include="Controllers\CuresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PharmacyController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -190,12 +192,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddCureModel.cs" />
     <Compile Include="Models\AddPharmacyModel.cs" />
     <Compile Include="Models\DeletePharmacyModel.cs" />
+    <Compile Include="Models\GetCuresByNameModel.cs" />
+    <Compile Include="Models\GetCuresByPharmacyModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Results\AddCureResult.cs" />
     <Compile Include="Models\Results\AddPhramacyResult.cs" />
     <Compile Include="Models\Results\BaseResult.cs" />
     <Compile Include="Models\Results\DeletePharmacyResult.cs" />
+    <Compile Include="Models\Results\GetCuresResult.cs" />
     <Compile Include="Models\Results\GetPharmaciesResult.cs" />
     <Compile Include="Models\Results\GetPharmacyResult.cs" />
     <Compile Include="Models\Results\LoginResult.cs" />

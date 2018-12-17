@@ -36,7 +36,7 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public void Save(APTCures item)
+        public long Save(APTCures item)
         {
             try
             {
@@ -50,10 +50,12 @@ namespace Apteczka.Data.DAL
                     dbEntities.APTCures.Add(item);
                 }
                 dbEntities.SaveChanges();
+                return item.Id;
             }
             catch (Exception ex)
             {
                 throw ex;
+                return -1;
             }
         }
 
