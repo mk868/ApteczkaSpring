@@ -49,18 +49,6 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_APTLocation_APTPharmacy">
-          <End Role="APTPharmacy" Type="Self.APTPharmacy" Multiplicity="1" />
-          <End Role="APTLocation" Type="Self.APTLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="APTPharmacy">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="APTLocation">
-              <PropertyRef Name="APTPharmacyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_APTLocationCures_APTCures">
           <End Role="APTCures" Type="Self.APTCures" Multiplicity="1" />
           <End Role="APTLocationCures" Type="Self.APTLocationCures" Multiplicity="*" />
@@ -103,10 +91,6 @@
           <EntitySet Name="APTLocationCures" EntityType="Self.APTLocationCures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="APTPharmacy" EntityType="Self.APTPharmacy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="APTUsers" EntityType="Self.APTUsers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_APTLocation_APTPharmacy" Association="Self.FK_APTLocation_APTPharmacy">
-            <End Role="APTPharmacy" EntitySet="APTPharmacy" />
-            <End Role="APTLocation" EntitySet="APTLocation" />
-          </AssociationSet>
           <AssociationSet Name="FK_APTLocationCures_APTCures" Association="Self.FK_APTLocationCures_APTCures">
             <End Role="APTCures" EntitySet="APTCures" />
             <End Role="APTLocationCures" EntitySet="APTLocationCures" />
