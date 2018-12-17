@@ -7,6 +7,11 @@ import { MainComponent }      from './global/main/main.component';
 import { AboutComponent }      from './global/about/about.component';
 import { ContactComponent }      from './global/contact/contact.component';
 import { MapComponent }      from './global/map/map.component';
+import { AddMedicineComponent }      from './admin/add-medicine/add-medicine.component';
+import { AddPlaceComponent }      from './admin/add-place/add-place.component';
+import { LoginComponent }      from './admin/login/login.component';
+import {AuthGuardService as AuthService} from './auth.service';
+import {AuthGuardServiceLogin as AuthServiceLogin} from './auth.service_login';
 
 import { AppComponent }			from './app.component';
 
@@ -22,6 +27,9 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'map', component: MapComponent },
+  { path: 'login', component: LoginComponent, canActivate:[AuthServiceLogin] },
+  { path: 'add_medicine', component: AddMedicineComponent, canActivate:[AuthService] },
+  { path: 'add_place', component: AddPlaceComponent, canActivate:[AuthService]},
   {path: '**', redirectTo: ''}
 ];
 
