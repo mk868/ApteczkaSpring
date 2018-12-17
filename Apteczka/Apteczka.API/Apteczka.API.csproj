@@ -191,8 +191,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddPharmacyModel.cs" />
+    <Compile Include="Models\DeletePharmacyModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Results\AddPhramacyResult.cs" />
     <Compile Include="Models\Results\BaseResult.cs" />
+    <Compile Include="Models\Results\DeletePharmacyResult.cs" />
+    <Compile Include="Models\Results\GetPharmaciesResult.cs" />
+    <Compile Include="Models\Results\GetPharmacyResult.cs" />
     <Compile Include="Models\Results\LoginResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -265,6 +270,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Apteczka.Common\Apteczka.Common.csproj">
+      <Project>{8963AB8E-A8A5-40B3-9AF0-DFAD28AA7BC9}</Project>
+      <Name>Apteczka.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Apteczka.Data\Apteczka.Data.csproj">
       <Project>{2FEC3C4A-F9D9-47BC-8C23-B45B5717E0A7}</Project>
       <Name>Apteczka.Data</Name>

@@ -48,7 +48,7 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public void Save(APTPharmacy item)
+        public long Save(APTPharmacy item)
         {
             try
             {
@@ -62,10 +62,12 @@ namespace Apteczka.Data.DAL
                     dbEntities.APTPharmacy.Add(item);
                 }
                 dbEntities.SaveChanges();
+                return item.Id;
             }
             catch (Exception ex)
             {
                 throw ex;
+                return -1;
             }
         }
 
@@ -95,7 +97,7 @@ namespace Apteczka.Data.DAL
             {
                 throw ex;
             }
-        } 
+        }
         #endregion
     }
 }

@@ -59,21 +59,21 @@ BEGIN
 END;
 --- koniec APTCures
 
-IF DB_NAME()<>'master' AND
-   NOT EXISTS (	SELECT * FROM information_schema.tables
-		WHERE table_name='APTPharmacyCures' AND table_type='BASE TABLE')
-BEGIN
-	PRINT 'Tworze tabele APTPharmacyCures';
-	CREATE TABLE [dbo].[APTPharmacyCures](
-	[Id] [BIGINT] IDENTITY(1,10) NOT NULL,	-- primary key
-	[APTPharmacyId] [BIGINT] NOT NULL,	-- FK to table APTPharmacy references column Id
-	[APTCuresId] [BIGINT] NOT NULL,	-- FK to table APTPharmacy references column Id
-	CONSTRAINT [PK_APTPharmacyCures] PRIMARY KEY NONCLUSTERED ([Id]),
-	CONSTRAINT [FK_APTPharmacyCures_APTPharmacy] FOREIGN KEY([APTPharmacyId]) REFERENCES [dbo].[APTPharmacy] ([Id]),
-	CONSTRAINT [FK_APTPharmacyCures_APTCures] FOREIGN KEY([APTCuresId]) REFERENCES [dbo].[APTCures] ([Id])
-	);
-END;
---- koniec APTPharmacyCures
+--IF DB_NAME()<>'master' AND
+--   NOT EXISTS (	SELECT * FROM information_schema.tables
+--		WHERE table_name='APTPharmacyCures' AND table_type='BASE TABLE')
+--BEGIN
+--	PRINT 'Tworze tabele APTPharmacyCures';
+--	CREATE TABLE [dbo].[APTPharmacyCures](
+--	[Id] [BIGINT] IDENTITY(1,10) NOT NULL,	-- primary key
+--	[APTPharmacyId] [BIGINT] NOT NULL,	-- FK to table APTPharmacy references column Id
+--	[APTCuresId] [BIGINT] NOT NULL,	-- FK to table APTPharmacy references column Id
+--	CONSTRAINT [PK_APTPharmacyCures] PRIMARY KEY NONCLUSTERED ([Id]),
+--	CONSTRAINT [FK_APTPharmacyCures_APTPharmacy] FOREIGN KEY([APTPharmacyId]) REFERENCES [dbo].[APTPharmacy] ([Id]),
+--	CONSTRAINT [FK_APTPharmacyCures_APTCures] FOREIGN KEY([APTCuresId]) REFERENCES [dbo].[APTCures] ([Id])
+--	);
+--END;
+----- koniec APTPharmacyCures
 
 IF DB_NAME()<>'master' AND
    NOT EXISTS (	SELECT * FROM information_schema.tables

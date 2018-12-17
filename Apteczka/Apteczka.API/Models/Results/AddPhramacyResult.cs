@@ -5,11 +5,11 @@ using System.Web;
 
 namespace Apteczka.API.Models.Results
 {
-    public class LoginResult : BaseResult
+    public class AddPhramacyResult : BaseResult
     {
         public long Id { get; set; }
 
-        public LoginResult(bool success, long id)
+        public AddPhramacyResult(bool success, long id)
         {
             this.Success = success;
             this.Id = id;

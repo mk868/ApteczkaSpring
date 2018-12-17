@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiDTO\PharmacyDto.cs" />
     <Compile Include="DAL\APTCuresController.cs" />
     <Compile Include="DAL\APTLocationController.cs" />
     <Compile Include="DAL\APTPharmacyController.cs" />
