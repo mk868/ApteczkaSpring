@@ -13,9 +13,9 @@ namespace Apteczka.Data.DTO
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ApteczkaDbEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public ApteczkaDbEntities()
+        public Entities()
             : base("name=ApteczkaDbEntities")
         {
         }
@@ -27,8 +27,8 @@ namespace Apteczka.Data.DTO
     
         public virtual DbSet<APTCures> APTCures { get; set; }
         public virtual DbSet<APTLocation> APTLocation { get; set; }
+        public virtual DbSet<APTLocationCures> APTLocationCures { get; set; }
         public virtual DbSet<APTPharmacy> APTPharmacy { get; set; }
         public virtual DbSet<APTUsers> APTUsers { get; set; }
-        public virtual DbSet<APTLocationCures> APTLocationCures { get; set; }
     }
 }

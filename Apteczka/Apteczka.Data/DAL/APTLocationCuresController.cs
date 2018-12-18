@@ -9,7 +9,7 @@ namespace Apteczka.Data.DAL
 {
     public class APTLocationCuresController
     {
-        private ApteczkaDbEntities dbEntities = new ApteczkaDbEntities();
+        private Entities dbEntities = new Entities();
 
         #region GenericController
         public IList<APTLocationCures> GetAll()
