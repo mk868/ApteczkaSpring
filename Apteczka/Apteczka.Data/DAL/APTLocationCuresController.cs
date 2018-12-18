@@ -60,7 +60,7 @@ namespace Apteczka.Data.DAL
             }
         }
 
-        public void Save(APTLocationCures item)
+        public long Save(APTLocationCures item)
         {
             try
             {
@@ -74,10 +74,12 @@ namespace Apteczka.Data.DAL
                     dbEntities.APTLocationCures.Add(item);
                 }
                 dbEntities.SaveChanges();
+                return item.Id;
             }
             catch (Exception ex)
             {
                 throw ex;
+                return -1;
             }
         }
 
