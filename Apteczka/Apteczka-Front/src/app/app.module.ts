@@ -15,6 +15,7 @@ import { ContactComponent }      from './global/contact/contact.component';
 import { MapComponent }      from './global/map/map.component';
 import { AddMedicineComponent }      from './admin/add-medicine/add-medicine.component';
 import { AddPlaceComponent }      from './admin/add-place/add-place.component';
+import { AddPharmacyComponent }      from './admin/add-pharmacy/add-pharmacy.component';
 import { LoginComponent }      from './admin/login/login.component';
 import {AuthGuardService as AuthService} from './auth.service';
 import {AuthGuardServiceLogin as AuthServiceLogin} from './auth.service_login';
@@ -30,6 +31,7 @@ import {AuthGuardServiceLogin as AuthServiceLogin} from './auth.service_login';
   MapComponent,
   AddMedicineComponent,
   AddPlaceComponent,
+  AddPharmacyComponent,
   LoginComponent,
   MedicineItemComponent,
   PharmacyItemComponent,

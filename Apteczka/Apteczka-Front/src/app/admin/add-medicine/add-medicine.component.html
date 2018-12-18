@@ -1,1 +1,51 @@
-test add medicine
+<section class="content">
+        <h1>Dodaj lek</h1>
+        <div class="col-md-8 col-md-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="form">
+                <form (ngSubmit)="onSubmit()">
+                  <div>
+                    <label>Nazwa leku: </label> <br />
+                    <input
+                      type="text"
+                      placeholder="Nazwa"
+                      [(ngModel)]="login"
+                      name="name"
+                    />
+                  </div>
+                  <div>
+                    <label>Nazwa producenta: </label> <br />
+                    <input
+                      type="text"
+                      placeholder="Producent"
+                      [(ngModel)]="login"
+                      name="company"
+                    />
+                  </div>
+                  <div>
+                    <label>Opis leku: </label> <br />
+                    <input
+                      type="text"
+                      placeholder="Opis"
+                      [(ngModel)]="password"
+                      name="description"
+                    />
+                  </div>
+                  <div>
+                    <label>Skład: </label> <br />
+                    <input
+                      type="text"
+                      placeholder="Skład"
+                      [(ngModel)]="password"
+                      name="address"
+                    />
+                  </div> <br />
+                  <button type="submit" class="btn btn-success">Dodaj</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
