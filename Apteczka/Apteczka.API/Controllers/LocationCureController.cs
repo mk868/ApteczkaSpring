@@ -25,6 +25,21 @@ namespace Apteczka.API.Controllers
             return new AddLocationCureResult(false, id);
         }
 
-
+        [HttpPost]
+        [Route("GetByCure")]
+        public GetLocationByCureResult GetByCure(GetLocationByCureModel getLocationByCure)
+        {
+            var locations = new APTLocationCuresController().GetOneByAPTCuresId(getLocationByCure.Id);
+            try
+            {
+                if (locations.Count != 0)
+                    return new GetLocationByCureResult(true, locations);
+                return new GetLocationByCureResult(false);
+            }
+            catch
+            {
+                return new GetLocationByCureResult(false);
+            }
+        }
     }
 }
