@@ -7,7 +7,8 @@ import { AppRoutingModule }	from './app-routing.module';
 
 import { ListComponent }	from './medicines/list/list.component';
 import { SearchComponent }	from './medicines/search/search.component';
-import { ItemComponent }      	from './medicines/item/item.component';
+import { ItemComponent as MedicineItemComponent }      	from './medicines/item/item.component';
+import { ItemComponent as PharmacyItemComponent }      	from './pharmacy/item/item.component';
 import { MainComponent }    from './global/main/main.component';
 import { AboutComponent }      from './global/about/about.component';
 import { ContactComponent }      from './global/contact/contact.component';
@@ -30,7 +31,8 @@ import {AuthGuardServiceLogin as AuthServiceLogin} from './auth.service_login';
   AddMedicineComponent,
   AddPlaceComponent,
   LoginComponent,
-  ItemComponent
+  MedicineItemComponent,
+  PharmacyItemComponent,
   ],
   imports: [
     BrowserModule,

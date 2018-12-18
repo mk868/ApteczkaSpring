@@ -1,7 +1,8 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent }      	from './medicines/list/list.component';
-import { ItemComponent }      	from './medicines/item/item.component';
+import { ItemComponent as MedicineItemComponent }      	from './medicines/item/item.component';
+import { ItemComponent as PharmacyItemComponent }      	from './pharmacy/item/item.component';
 import { SearchComponent }      from './medicines/search/search.component';
 import { MainComponent }      from './global/main/main.component';
 import { AboutComponent }      from './global/about/about.component';
@@ -21,7 +22,12 @@ const routes: Routes = [
 	children: [
 		{ path: 'list', component: ListComponent },
 		{ path: 'search', component: SearchComponent },
-		{ path: 'item/:id', component: ItemComponent },
+		{ path: 'item/:id', component: MedicineItemComponent },
+	]
+  },
+  { path: 'pharmacy', component: null,
+	children: [
+		{ path: 'item/:id', component: PharmacyItemComponent },
 	]
   },
   { path: 'about', component: AboutComponent },

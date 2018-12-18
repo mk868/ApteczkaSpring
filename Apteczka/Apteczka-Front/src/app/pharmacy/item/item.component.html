@@ -1,0 +1,35 @@
+<section class="content">
+  <h1>Details</h1>
+    name: {{name}}<br/>
+  <h1>Medicine list</h1>
+  <div class="col-md-8 col-md-offset-2">
+     <div class="panel panel-default">
+        <div class="panel-body">
+           <div class="table-container">
+              <table class="table table-filter">
+                 <tbody>
+                    <tr *ngFor="let item of items">
+                       <td>
+                          <a [routerLink]="['/medicines/item/'+item.id]" class="pull-left">
+                             <img src="{{item.image}}" />
+                          </a>
+                       </td>
+                       <td>
+                          <div class="media">
+                             <div class="media-body">
+                                <span class="media-meta pull-right">{{item.company}}</span>
+                                <a [routerLink]="['/medicines/item/'+item.id]">
+                                   <h4 class="title">{{item.name}}</h4>
+                                </a>
+                                <p class="summary">{{item.shortDescription}}</p>
+                             </div>
+                          </div>
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
