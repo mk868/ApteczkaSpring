@@ -8,7 +8,7 @@ export class AuthGuardServiceLogin implements CanActivate {
 
   canActivate(): boolean {
     if (JSON.parse(localStorage.getItem("loggedIn"))) {
-      this.router.navigate(["/add_medicine"]);
+      this.router.navigate(["/add_place"]);
       return false;
     } else {
       return true;
