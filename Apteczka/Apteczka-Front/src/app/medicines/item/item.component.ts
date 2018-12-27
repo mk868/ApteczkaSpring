@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -6,17 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  item = {}
-  constructor() { }
+  medicine = {}
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.item = {
-      id: 1,
-      image: "/assets/medicine-128.png",
-      company: "ChinaLab 123",
-      name: "Lorem Impsum (Cancelado)",
-      description: "Ut enim ad minim veniam, quis nostrud exercitation."
-    };
+    this.route.params.subscribe(params => {
+      let id = params['id'];
+
+      let param = new HttpParams({
+        fromObject: {
+          id: id,
+        }
+      });
+
+      this.httpClient.get(environment.apiEndpoint + '/medicine/get', { params: param }).subscribe((data: any) => {
+        this.medicine = data
+      });
+    });
   }
 
 }

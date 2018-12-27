@@ -1,14 +1,18 @@
 <section class="content">
   <div class="panel panel-default">
     <div class="panel-body">
-      <img src="{{item.image}}"/>
+      <img src="/assets/medicine-128.png" />
       <div class="media">
         <div class="media-body">
-          <span class="media-meta pull-right">{{item.company}}</span>
-          <h4 class="title">{{item.name}}</h4>
-          <p class="summary">{{item.description}}</p>               
+          <span class="media-meta pull-right">{{medicine.company}}</span>
+          <h4 class="title">{{medicine.name}}</h4>
+          <p class="summary">{{medicine.description}}</p>
+          available in:
+          <span *ngFor="let item of medicine.pharmacies">
+            <a [routerLink]="['/pharmacy/item/'+item.id]">{{ item.name }}</a>&nbsp;
+          </span>
         </div>
       </div>
     </div>
   </div>
- </section>
+</section>

@@ -1,7 +1,7 @@
 <section class="content">
   <h1>Details</h1>
-  name: {{ name }}<br />
-  <h1>Medicine list</h1>
+  name: {{ pharmacy.name }}<br />
+  <h2>Medicine list</h2>
   <div class="col-md-8 col-md-offset-2">
     <a class="nav-link" [routerLink]="['/add_medicine']" *ngIf="isLogged">Dodaj lek</a>
     <div class="panel panel-default">
@@ -9,13 +9,13 @@
         <div class="table-container">
           <table class="table table-filter">
             <tbody>
-              <tr *ngFor="let item of items">
-                <td>
+              <tr *ngFor="let item of pharmacy.medicines">
+                <td width="150">
                   <a
                     [routerLink]="['/medicines/item/' + item.id]"
                     class="pull-left"
                   >
-                    <img src="{{item.image}}" />
+                    <img src="/assets/medicine-128.png" />
                   </a>
                 </td>
                 <td>

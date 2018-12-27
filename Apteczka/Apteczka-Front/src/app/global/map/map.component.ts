@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 //import TileLayer from 'ol/layer/Tile';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
@@ -25,30 +27,11 @@ export class MapComponent implements OnInit {
   pharmacyName: string;
 
   selectedObject: any = null;
-  objects = [
-    {
-      lon: 23.017532,
-      lat: 52.237049,
-      name: 'Apteka1',
-      id: 1
-    },
-    {
-      lon: 21.017532,
-      lat: 52.237049,
-      name: 'Apteka2',
-      id: 2
-    },
-    {
-      lon: 21.017532,
-      lat: 42.237049,
-      name: 'Apteka3',
-      id: 3
-    }
-  ];
+  objects = [];
 
 
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   createMarkers() {
     var iconStyle = new Style({
@@ -114,7 +97,9 @@ export class MapComponent implements OnInit {
       }
     });
 
-    //TODO, get objects using REST api here
-    this.createMarkers();//tmp;
+    this.httpClient.get(environment.apiEndpoint + '/pharmacy/all').subscribe((data: any) => {
+      this.objects = data;
+      this.createMarkers();
+    });
   }
 }
