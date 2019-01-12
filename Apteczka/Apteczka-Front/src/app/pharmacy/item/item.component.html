@@ -1,9 +1,9 @@
 <section class="content">
   <h1>Details</h1>
-  name: {{ pharmacy.name }}<br />
-  <h2>Medicine list</h2>
+  Apteka: {{ pharmacy.name }}<br />
+  <h2>Lista leków dostępnych w aptece</h2>
   <div class="col-md-8 col-md-offset-2">
-    <a class="nav-link" [routerLink]="['/add_medicine']" *ngIf="isLogged">Dodaj lek</a>
+    <a class="nav-link" [routerLink]="['/avaliable_medicines/' + pharmacy.id]" *ngIf="isLogged">Dodaj lek</a>
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="table-container">
@@ -32,7 +32,7 @@
                   </div>
                 </td>
                 <td>
-                  <button item-width="50" item-height="50" *ngIf="isLogged">
+                  <button item-width="50" item-height="50" *ngIf="isLogged" [routerLink]="['/delete_medicine_from_pharmacy/'+ pharmacy.id +'/'+ item.id]">
                     X
                   </button>
                 </td>

@@ -7,7 +7,8 @@
           <span class="media-meta pull-right">{{medicine.company}}</span>
           <h4 class="title">{{medicine.name}}</h4>
           <p class="summary">{{medicine.description}}</p>
-          available in:
+          <p class="summary">Skład: {{medicine.composition}}</p>
+          Dostępne w:
           <span *ngFor="let item of medicine.pharmacies">
             <a [routerLink]="['/pharmacy/item/'+item.id]">{{ item.name }}</a>&nbsp;
           </span>

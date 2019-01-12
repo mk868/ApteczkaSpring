@@ -1,12 +1,12 @@
 <section class="content">
-  <h1>Dodaj aptekę</h1>
+  <h1>Edytuj lek</h1>
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="form">
           <form (ngSubmit)="onSubmit()">
             <div>
-              <label>Nazwa apteki: </label> <br />
+              <label>Nazwa leku: </label> <br />
               <input
                 type="text"
                 placeholder="Nazwa"
@@ -15,16 +15,16 @@
               />
             </div>
             <div>
-              <label>Nazwa Firmy: </label> <br />
+              <label>Nazwa producenta: </label> <br />
               <input
                 type="text"
-                placeholder="Firma"
+                placeholder="Producent"
                 [(ngModel)]="company"
                 name="company"
               />
             </div>
             <div>
-              <label>Opis: </label> <br />
+              <label>Opis leku: </label> <br />
               <input
                 type="text"
                 placeholder="Opis"
@@ -33,24 +33,15 @@
               />
             </div>
             <div>
-              <label>Lat: </label> <br />
+              <label>Skład: </label> <br />
               <input
-                type="number"
-                placeholder="Lat"
-                [(ngModel)]="lat"
-                name="Lat"
-              />
-            </div>
-            <div>
-              <label>Lng: </label> <br />
-              <input
-                type="number"
-                placeholder="Lng"
-                [(ngModel)]="lng"
-                name="Lng"
+                type="text"
+                placeholder="Skład"
+                [(ngModel)]="composition"
+                name="composition"
               />
             </div> <br />
-            <button type="submit" class="btn btn-success">Dodaj</button>
+            <button type="submit" class="btn btn-success">Zapisz</button>
           </form>
         </div>
       </div>

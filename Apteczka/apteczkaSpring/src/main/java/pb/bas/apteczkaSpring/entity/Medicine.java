@@ -21,13 +21,10 @@ public class Medicine {
 
     private String company;
 
+    private String composition;
+
     private String image;
 
-    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "Pharmacy_Medicine",
-            joinColumns = { @JoinColumn(name = "medicine_id") },
-            inverseJoinColumns = { @JoinColumn(name = "pharmacy_id") }
-    )
+    @ManyToMany(mappedBy = "medicines", fetch = FetchType.LAZY)
     private List<Pharmacy> pharmacies = new ArrayList<>();
 }

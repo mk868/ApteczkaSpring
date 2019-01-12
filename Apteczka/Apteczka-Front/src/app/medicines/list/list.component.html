@@ -1,6 +1,7 @@
 <section class="content">
    <h1>Medicine list</h1>
    <div class="col-md-8 col-md-offset-2">
+      <a class="nav-link" *ngIf="isLogged" [routerLink]="['/add_medicine']">Dodaj lek</a>
       <div class="panel panel-default">
          <div class="panel-body">
             <div class="table-container">
@@ -23,6 +24,26 @@
                               </div>
                            </div>
                         </td>
+                        <td>
+                           <button
+                             *ngIf="isLogged"
+                             item-width="50"
+                             item-height="50"
+                             [routerLink]="['/edit_medicine/' + item.id]"
+                           >
+                             Edytuj
+                           </button>
+                         </td>
+                         <td>
+                           <button
+                             *ngIf="isLogged"
+                             item-width="50"
+                             item-height="50"
+                             [routerLink]="['/remove_medicine/' + item.id]"
+                           >
+                             X
+                           </button>
+                         </td>
                      </tr>
                   </tbody>
                </table>

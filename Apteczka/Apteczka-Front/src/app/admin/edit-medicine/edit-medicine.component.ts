@@ -4,11 +4,12 @@ import { environment } from "../../../environments/environment";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 
 @Component({
-  selector: "app-add-medicine",
-  templateUrl: "./add-medicine.component.html",
-  styleUrls: ["./add-medicine.component.css"]
+  selector: "app-edit-medicine",
+  templateUrl: "./edit-medicine.component.html",
+  styleUrls: ["./edit-medicine.component.css"]
 })
-export class AddMedicineComponent implements OnInit {
+export class EditMedicineComponent implements OnInit {
+  id = 0;
   name = "";
   company = "";
   description = "";
@@ -21,10 +22,29 @@ export class AddMedicineComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      let id = params["id"];
+
+      let param = new HttpParams({
+        fromObject: {
+          id: id
+        }
+      });
+
+      this.httpClient
+        .get(environment.apiEndpoint + "/medicine/get", { params: param })
+        .subscribe((data: any) => {
+          (this.name = data.name),
+            (this.company = data.company),
+            (this.description = data.description),
+            (this.composition = data.composition),
+            (this.id = data.id);
+        });
+    });
   }
 
   onSubmit() {
-    console.log("dodawanie leku");
+    console.log("edycja leku");
 
     if (
       this.name == "" ||
@@ -40,7 +60,8 @@ export class AddMedicineComponent implements OnInit {
       name: this.name,
       company: this.company,
       description: this.description,
-      composition: this.composition
+      composition: this.composition,
+      id: this.id
     };
 
     this.httpClient

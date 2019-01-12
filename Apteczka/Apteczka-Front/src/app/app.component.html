@@ -10,6 +10,9 @@
         <li class="nav-item" *ngIf="isLogged">
           <a class="nav-link" [routerLink]="['/add_place']">Zarządzaj aptekami</a>
         </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link" [routerLink]="['/medicines/list']">Zarządzaj lekami</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/map']">Map</a>
         </li>
