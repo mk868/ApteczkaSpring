@@ -17,10 +17,19 @@ public class Pharmacy {
 
     private String name;
 
+    private String description;
+
+    private String company;
+
     private Float lon;
 
     private Float lat;
 
-    @ManyToMany(mappedBy = "pharmacies", fetch = FetchType.LAZY)
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "Pharmacy_Medicine",
+            joinColumns = { @JoinColumn(name = "medicine_id") },
+            inverseJoinColumns = { @JoinColumn(name = "pharmacy_id") }
+    )
     private List<Medicine> medicines = new ArrayList<>();
 }

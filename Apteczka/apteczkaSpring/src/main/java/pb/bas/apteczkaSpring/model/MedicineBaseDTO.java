@@ -10,5 +10,7 @@ public class MedicineBaseDTO {
 
     private String company;
 
+    private String composition;
+
     private String image;
 }

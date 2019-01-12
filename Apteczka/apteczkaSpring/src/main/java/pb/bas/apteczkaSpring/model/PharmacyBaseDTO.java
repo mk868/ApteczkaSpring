@@ -8,6 +8,10 @@ public class PharmacyBaseDTO {
 
     private String name;
 
+    private String description;
+
+    private String company;
+
     private Float lon;
 
     private Float lat;

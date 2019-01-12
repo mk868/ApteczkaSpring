@@ -9,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ListComponent implements OnInit {
   items = [];
-
+  isLogged: boolean = JSON.parse(localStorage.getItem("loggedIn"));
+  
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
