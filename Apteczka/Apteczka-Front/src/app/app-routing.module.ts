@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'map', component: MapComponent },
   { path: 'login', component: LoginComponent, canActivate:[AuthServiceLogin] },
-  { path: 'add_medicine', component: AddMedicineComponent, canActivate:[AuthService] },
+  { path: 'add_medicine', component: AddMedicineComponent, canActivate:[AuthService],data : {authGuardRedirect: '/about'} },
   { path: 'add_place', component: AddPlaceComponent, canActivate:[AuthService]},
   { path: 'remove_place/:id', component: RemovePlaceComponent, canActivate:[AuthService]},
   { path: 'remove_medicine/:id', component: RemoveMedicineComponent, canActivate:[AuthService]},

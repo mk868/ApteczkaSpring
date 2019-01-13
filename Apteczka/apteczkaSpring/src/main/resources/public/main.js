@@ -1154,7 +1154,7 @@ var routes = [
     { path: 'contact', component: _global_contact_contact_component__WEBPACK_IMPORTED_MODULE_8__["ContactComponent"] },
     { path: 'map', component: _global_map_map_component__WEBPACK_IMPORTED_MODULE_9__["MapComponent"] },
     { path: 'login', component: _admin_login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"], canActivate: [_auth_service_login__WEBPACK_IMPORTED_MODULE_21__["AuthGuardServiceLogin"]] },
-    { path: 'add_medicine', component: _admin_add_medicine_add_medicine_component__WEBPACK_IMPORTED_MODULE_10__["AddMedicineComponent"], canActivate: [_auth_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]] },
+    { path: 'add_medicine', component: _admin_add_medicine_add_medicine_component__WEBPACK_IMPORTED_MODULE_10__["AddMedicineComponent"], canActivate: [_auth_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]], data: { authGuardRedirect: '/about' } },
     { path: 'add_place', component: _admin_add_place_add_place_component__WEBPACK_IMPORTED_MODULE_11__["AddPlaceComponent"], canActivate: [_auth_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]] },
     { path: 'remove_place/:id', component: _admin_remove_place_remove_place_component__WEBPACK_IMPORTED_MODULE_12__["RemovePlaceComponent"], canActivate: [_auth_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]] },
     { path: 'remove_medicine/:id', component: _admin_remove_medicine_remove_medicine_component__WEBPACK_IMPORTED_MODULE_13__["RemoveMedicineComponent"], canActivate: [_auth_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]] },
@@ -1380,6 +1380,7 @@ var AppModule = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuardService", function() { return AuthGuardService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1390,15 +1391,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AuthGuardService = /** @class */ (function () {
-    function AuthGuardService() {
+    function AuthGuardService(route, router) {
+        this.route = route;
+        this.router = router;
     }
     AuthGuardService.prototype.canActivate = function () {
-        return JSON.parse(localStorage.getItem("loggedIn"));
+        if (JSON.parse(localStorage.getItem("loggedIn"))) {
+            return true;
+        }
+        else {
+            this.router.navigate([""]);
+            return false;
+        }
     };
     AuthGuardService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], AuthGuardService);
     return AuthGuardService;
 }());
