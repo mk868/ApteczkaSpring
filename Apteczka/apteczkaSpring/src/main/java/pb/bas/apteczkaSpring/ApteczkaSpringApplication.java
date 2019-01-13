@@ -7,11 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pb.bas.apteczkaSpring.entity.Medicine;
-import pb.bas.apteczkaSpring.entity.Pharmacy;
-import pb.bas.apteczkaSpring.model.MedicineDetailsDTO;
 import pb.bas.apteczkaSpring.model.MedicineItemDTO;
-import pb.bas.apteczkaSpring.model.PharmacyBaseDTO;
-import pb.bas.apteczkaSpring.model.PharmacyDetailsDTO;
 
 @SpringBootApplication
 public class ApteczkaSpringApplication {
@@ -19,6 +15,8 @@ public class ApteczkaSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApteczkaSpringApplication.class, args);
 	}
+
+	private static final String PATH = "/error";
 
 	//TODO move to other class
 	@Bean
@@ -46,6 +44,5 @@ public class ApteczkaSpringApplication {
 		modelMapper.addConverter(medicineItemConverter);
 		return modelMapper;
 	}
-
 }
 
