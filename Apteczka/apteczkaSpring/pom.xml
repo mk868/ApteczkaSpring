@@ -134,6 +134,7 @@
 				<version>1.4.9</version>
 				<configuration>
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+					<pullNewerImage>false</pullNewerImage>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -41,7 +41,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  add-medicine-to-pharmacy works!\n</p>\n"
+module.exports = "<p>\r\n  add-medicine-to-pharmacy works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -409,7 +409,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"content\">\n  <h1>Lista leków dostępna dla tej apteki</h1>\n  <div class=\"col-md-8 col-md-offset-2\">\n    <div class=\"panel panel-default\">\n      <div class=\"panel-body\">\n        <div class=\"table-container\">\n          <table class=\"table table-filter\">\n            <tbody>\n              <tr *ngFor=\"let item of items\">\n                <td width=\"150\">\n                  <a\n                    [routerLink]=\"['/medicines/item/' + item.id]\"\n                    class=\"pull-left\"\n                  >\n                    <img src=\"/assets/medicine-128.png\" />\n                  </a>\n                </td>\n                <td>\n                  <div class=\"media\">\n                    <div class=\"media-body\">\n                      <span class=\"media-meta pull-right\">{{\n                        item.company\n                      }}</span>\n                      <a [routerLink]=\"['/medicines/item/' + item.id]\">\n                        <h4 class=\"title\">{{ item.name }}</h4>\n                      </a>\n                      <p class=\"summary\">{{ item.shortDescription }}</p>\n                    </div>\n                  </div>\n                </td>\n                <td>\n                  <button\n                    *ngIf=\"isLogged\"\n                    item-width=\"50\"\n                    item-height=\"50\"\n                    [routerLink]=\"['/add_medicine_to_pharmacy/' + pharmacyId + '/' + item.id]\"\n                  >\n                    +\n                  </button>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<section class=\"content\">\r\n  <h1>Lista leków dostępna dla tej apteki</h1>\r\n  <div class=\"col-md-8 col-md-offset-2\">\r\n    <div class=\"panel panel-default\">\r\n      <div class=\"panel-body\">\r\n        <div class=\"table-container\">\r\n          <table class=\"table table-filter\">\r\n            <tbody>\r\n              <tr *ngFor=\"let item of items\">\r\n                <td width=\"150\">\r\n                  <a\r\n                    [routerLink]=\"['/medicines/item/' + item.id]\"\r\n                    class=\"pull-left\"\r\n                  >\r\n                    <img src=\"/assets/medicine-128.png\" />\r\n                  </a>\r\n                </td>\r\n                <td>\r\n                  <div class=\"media\">\r\n                    <div class=\"media-body\">\r\n                      <span class=\"media-meta pull-right\">{{\r\n                        item.company\r\n                      }}</span>\r\n                      <a [routerLink]=\"['/medicines/item/' + item.id]\">\r\n                        <h4 class=\"title\">{{ item.name }}</h4>\r\n                      </a>\r\n                      <p class=\"summary\">{{ item.shortDescription }}</p>\r\n                    </div>\r\n                  </div>\r\n                </td>\r\n                <td>\r\n                  <button\r\n                    *ngIf=\"isLogged\"\r\n                    item-width=\"50\"\r\n                    item-height=\"50\"\r\n                    [routerLink]=\"['/add_medicine_to_pharmacy/' + pharmacyId + '/' + item.id]\"\r\n                  >\r\n                    +\r\n                  </button>\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -501,7 +501,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  delete-medicine-from-pharmacy works!\n</p>\n"
+module.exports = "<p>\r\n  delete-medicine-from-pharmacy works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -591,7 +591,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"content\">\n  <h1>Edytuj lek</h1>\n  <div class=\"col-md-8 col-md-offset-2\">\n    <div class=\"panel panel-default\">\n      <div class=\"panel-body\">\n        <div class=\"form\">\n          <form (ngSubmit)=\"onSubmit()\">\n            <div>\n              <label>Nazwa leku: </label> <br />\n              <input\n                type=\"text\"\n                placeholder=\"Nazwa\"\n                [(ngModel)]=\"name\"\n                name=\"name\"\n              />\n            </div>\n            <div>\n              <label>Nazwa producenta: </label> <br />\n              <input\n                type=\"text\"\n                placeholder=\"Producent\"\n                [(ngModel)]=\"company\"\n                name=\"company\"\n              />\n            </div>\n            <div>\n              <label>Opis leku: </label> <br />\n              <input\n                type=\"text\"\n                placeholder=\"Opis\"\n                [(ngModel)]=\"description\"\n                name=\"description\"\n              />\n            </div>\n            <div>\n              <label>Skład: </label> <br />\n              <input\n                type=\"text\"\n                placeholder=\"Skład\"\n                [(ngModel)]=\"composition\"\n                name=\"composition\"\n              />\n            </div> <br />\n            <button type=\"submit\" class=\"btn btn-success\">Zapisz</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<section class=\"content\">\r\n  <h1>Edytuj lek</h1>\r\n  <div class=\"col-md-8 col-md-offset-2\">\r\n    <div class=\"panel panel-default\">\r\n      <div class=\"panel-body\">\r\n        <div class=\"form\">\r\n          <form (ngSubmit)=\"onSubmit()\">\r\n            <div>\r\n              <label>Nazwa leku: </label> <br />\r\n              <input\r\n                type=\"text\"\r\n                placeholder=\"Nazwa\"\r\n                [(ngModel)]=\"name\"\r\n                name=\"name\"\r\n              />\r\n            </div>\r\n            <div>\r\n              <label>Nazwa producenta: </label> <br />\r\n              <input\r\n                type=\"text\"\r\n                placeholder=\"Producent\"\r\n                [(ngModel)]=\"company\"\r\n                name=\"company\"\r\n              />\r\n            </div>\r\n            <div>\r\n              <label>Opis leku: </label> <br />\r\n              <input\r\n                type=\"text\"\r\n                placeholder=\"Opis\"\r\n                [(ngModel)]=\"description\"\r\n                name=\"description\"\r\n              />\r\n            </div>\r\n            <div>\r\n              <label>Skład: </label> <br />\r\n              <input\r\n                type=\"text\"\r\n                placeholder=\"Skład\"\r\n                [(ngModel)]=\"composition\"\r\n                name=\"composition\"\r\n              />\r\n            </div> <br />\r\n            <button type=\"submit\" class=\"btn btn-success\">Zapisz</button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -711,7 +711,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"content\">\n  <h1>Edytuj aptekę</h1>\n  <div class=\"col-md-8 col-md-offset-2\">\n    <div class=\"panel panel-default\">\n      <div class=\"panel-body\">\n        <div class=\"form\">\n          <form (ngSubmit)=\"onSubmit()\">\n            <div>\n              <label>Nazwa apteki: </label> <br />\n              <input\n                type=\"text\"\n                placeholder=\"Nazwa\"\n                [(ngModel)]=\"name\"\n                name=\"name\"\n              >\n            </div>\n            <div>\n              <label>Nazwa Firmy: </label> <br />\n              <input\n                type=\"text\"\n                placeholder=\"Firma\"\n                [(ngModel)]=\"company\"\n                name=\"company\"\n              />\n            </div>\n            <div>\n              <label>Opis: </label> <br />\n              <input\n                type=\"text\"\n                placeholder=\"Opis\"\n                [(ngModel)]=\"description\"\n                name=\"description\"\n              />\n            </div>\n            <div>\n              <label>Lat: </label> <br />\n              <input\n                type=\"number\"\n                placeholder=\"Lat\"\n                [(ngModel)]=\"lat\"\n                name=\"Lat\"\n              />\n            </div>\n            <div>\n              <label>Lng: </label> <br />\n              <input\n                type=\"number\"\n                placeholder=\"Lng\"\n                [(ngModel)]=\"lng\"\n                name=\"Lng\"\n              />\n            </div> <br />\n            <button type=\"submit\" class=\"btn btn-success\">Zapisz</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<section class=\"content\">\r\n  <h1>Edytuj aptekę</h1>\r\n  <div class=\"col-md-8 col-md-offset-2\">\r\n    <div class=\"panel panel-default\">\r\n      <div class=\"panel-body\">\r\n        <div class=\"form\">\r\n          <form (ngSubmit)=\"onSubmit()\">\r\n            <div>\r\n              <label>Nazwa apteki: </label> <br />\r\n              <input\r\n                type=\"text\"\r\n                placeholder=\"Nazwa\"\r\n                [(ngModel)]=\"name\"\r\n                name=\"name\"\r\n              >\r\n            </div>\r\n            <div>\r\n              <label>Nazwa Firmy: </label> <br />\r\n              <input\r\n                type=\"text\"\r\n                placeholder=\"Firma\"\r\n                [(ngModel)]=\"company\"\r\n                name=\"company\"\r\n              />\r\n            </div>\r\n            <div>\r\n              <label>Opis: </label> <br />\r\n              <input\r\n                type=\"text\"\r\n                placeholder=\"Opis\"\r\n                [(ngModel)]=\"description\"\r\n                name=\"description\"\r\n              />\r\n            </div>\r\n            <div>\r\n              <label>Lat: </label> <br />\r\n              <input\r\n                type=\"number\"\r\n                placeholder=\"Lat\"\r\n                [(ngModel)]=\"lat\"\r\n                name=\"Lat\"\r\n              />\r\n            </div>\r\n            <div>\r\n              <label>Lng: </label> <br />\r\n              <input\r\n                type=\"number\"\r\n                placeholder=\"Lng\"\r\n                [(ngModel)]=\"lng\"\r\n                name=\"Lng\"\r\n              />\r\n            </div> <br />\r\n            <button type=\"submit\" class=\"btn btn-success\">Zapisz</button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -916,7 +916,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  remove-medicine works!\n</p>\n"
+module.exports = "<p>\r\n  remove-medicine works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1004,7 +1004,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  remove-place works!\n</p>\n"
+module.exports = "<p>\r\n  remove-place works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2139,7 +2139,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    apiEndpoint: 'http://localhost:8080/api'
+    apiEndpoint: '/api'
 };
 /*
  * For easier debugging in development mode, you can import the following file

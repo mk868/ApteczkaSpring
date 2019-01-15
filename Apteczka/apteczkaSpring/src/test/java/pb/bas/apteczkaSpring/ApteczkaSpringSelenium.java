@@ -22,7 +22,7 @@ public class ApteczkaSpringSelenium {
         webDriver = new ChromeDriver();
         webDriver.manage().timeouts().implicitlyWait(10000,TimeUnit.MILLISECONDS);
         webDriver.manage().window().maximize();
-        webDriver.get("localhost:8080");
+        webDriver.get("localhost:8081");
 
     }
 

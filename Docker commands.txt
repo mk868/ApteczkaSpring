@@ -1,0 +1,4 @@
+docker build -t apteczkaspring:latest .
+docker tag apteczkaspring:latest apteczka.azurecr.io/apteczka
+docker push apteczka.azurecr.io/apteczka
+docker run -d -p 8080:8080 apteczkaspring:latest
