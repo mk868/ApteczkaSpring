@@ -87,6 +87,81 @@ public class ApteczkaSpringSelenium {
 
     }
 
+    @Test
+    public void addPharmacyTest() throws InterruptedException{
+        WebElement loginButton = webDriver.findElement(By.cssSelector("[ng-reflect-router-link=\"/login\"]"));
+        loginButton.click();
+        WebElement loginInput = webDriver.findElement(By.cssSelector("[name=\"login\"]"));
+        WebElement passwordInput = webDriver.findElement(By.cssSelector("[name=\"password\"]"));
+        WebElement submitButton = webDriver.findElement(By.cssSelector("[type=\"submit\"]"));
+
+        //wrong login data
+        loginInput.sendKeys("d");
+        passwordInput.sendKeys("xd");
+        submitButton.click();
+        webDriver.switchTo().alert().accept();
+        loginInput.clear();
+        passwordInput.clear();
+
+        Thread.sleep(2000);
+        loginInput.sendKeys("admin");
+        passwordInput.sendKeys("admin");
+        submitButton.click();
+
+        submitButton = webDriver.findElement(By.cssSelector("[type=\"submit\"]"));
+        submitButton.click();
+        webDriver.switchTo().alert().accept();
+        Thread.sleep(2000);
+
+        webDriver.findElement(By.xpath("//a[contains(@href,'/add_place')]")).click();
+        webDriver.findElement(By.xpath("//a[contains(@href,'/add_pharmacy')]")).click();
+        webDriver.findElement(By.cssSelector("[type=\"submit\"]")).click();
+        webDriver.switchTo().alert().accept();
+        Thread.sleep(2000);
+
+        String pharmacyName = "Apteka_"+randomName();
+        webDriver.findElement(By.cssSelector("[name=\"name\"]")).sendKeys(pharmacyName);
+        webDriver.findElement(By.cssSelector("[name=\"company\"]")).sendKeys("Firma_"+randomName());
+        webDriver.findElement(By.cssSelector("[name=\"description\"]")).sendKeys("opis_"+randomName());
+        webDriver.findElement(By.cssSelector("[name=\"Lat\"]")).sendKeys("23");
+        webDriver.findElement(By.cssSelector("[name=\"Lng\"]")).sendKeys("50");
+        webDriver.findElement(By.cssSelector("[type=\"submit\"]")).click();
+        webDriver.findElement(By.xpath("//h4[contains(text(),'"+pharmacyName+"')]"));
+    }
+
+   @Test
+   public void assignMedicineToPharmacyTest() throws  InterruptedException{
+       WebElement loginButton = webDriver.findElement(By.cssSelector("[ng-reflect-router-link=\"/login\"]"));
+       loginButton.click();
+       WebElement loginInput = webDriver.findElement(By.cssSelector("[name=\"login\"]"));
+       WebElement passwordInput = webDriver.findElement(By.cssSelector("[name=\"password\"]"));
+       WebElement submitButton = webDriver.findElement(By.cssSelector("[type=\"submit\"]"));
+
+       //wrong login data
+       loginInput.sendKeys("d");
+       passwordInput.sendKeys("xd");
+       submitButton.click();
+       webDriver.switchTo().alert().accept();
+       loginInput.clear();
+       passwordInput.clear();
+
+       Thread.sleep(2000);
+       loginInput.sendKeys("admin");
+       passwordInput.sendKeys("admin");
+       submitButton.click();
+
+       submitButton = webDriver.findElement(By.cssSelector("[type=\"submit\"]"));
+       submitButton.click();
+       webDriver.switchTo().alert().accept();
+       Thread.sleep(2000);
+
+       webDriver.findElement(By.xpath("//a[contains(@href,'/add_place')]")).click();
+       webDriver.findElements(By.xpath("//h4[contains(text(),'')]")).get(0).click();
+       Thread.sleep(5000); // for list to load
+       webDriver.findElement(By.xpath("//a[contains(text(),'Dodaj lek')]")).click();
+       webDriver.findElements(By.xpath("//button[contains(text(),' + ')]")).get(0).click();
+
+   }
     public String randomName() {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
